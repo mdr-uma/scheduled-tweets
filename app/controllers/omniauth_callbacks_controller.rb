@@ -1,11 +1,11 @@
 class OmniauthCallbacksController < ApplicationController
     def twitter
-        Current.user.twitter_accounts.create(
+        twitter_account = Current.user.twitter_accounts.where(username: auth.info.nickname).first_or_initialize
+        twitter_account.update(
             name: auth.info.name,
-            username: auth.info.username,
             image: auth.info.image,
-            token: auth.info.token,
-            secret: auth.info.secret,
+            token: auth.credentials.token,
+            secret: auth.credentials.secret,
         )
 
         redirect_to root_path, notice: "Successfully connected your account"
