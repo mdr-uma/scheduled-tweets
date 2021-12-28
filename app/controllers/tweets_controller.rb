@@ -5,6 +5,10 @@ class TweetsController < ApplicationController
         @tweets = Current.user.tweets
     end
 
+    def new
+        @tweet = Tweet.new
+    end
+
     def create
         
     end
