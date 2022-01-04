@@ -10,6 +10,6 @@ class TweetsController < ApplicationController
     end
 
     def create
-        
+        @tweet = Current.user.tweets.new(tweet_params)
     end
 end
