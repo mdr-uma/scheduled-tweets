@@ -12,4 +12,10 @@ class TweetsController < ApplicationController
     def create
         @tweet = Current.user.tweets.new(tweet_params)
     end
+
+    private
+
+    def tweet_params
+        params.require(:tweet).permit(:twitter_account_id, :body, :publish_at)
+    end
 end
