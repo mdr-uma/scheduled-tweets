@@ -1,3 +1,6 @@
 <div class="mb-4">
     <%= tweet.body %>
+    <div class="mb-4">
+      <%= link_to "@#{tweet.twitter_account.username}", "https://twitter.com/#{tweet.twitter_account.username}", target: :_blank %>
+    </div>
 </div>
